@@ -43,22 +43,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'schedule.controllers
         controller: 'DashCtrl'
     })
 
-    .state('daily-schedule', {
-        url: '/daily-schedule',
+    .state('daily_schedule', {
+        url: '/daily_schedule',
         templateUrl: 'templates/day.html',
         controller: 'DayCtrl'
     })
 
-    .state('weekly-schedule', {
-        url: '/weekly-schedule',
+    .state('weekly_schedule', {
+        url: '/weekly_schedule',
         templateUrl: 'templates/week.html',
         controller: 'WeekCtrl'
     })
 
-    .state('monthly-schedule', {
-        url: '/monthly-schedule',
+    .state('monthly_schedule', {
+        url: '/monthly_schedule',
         templateUrl: 'templates/month.html',
         controller: 'MonthCtrl'
+    })
+
+    .state('account_creation', {
+        url: 'account_creation',
+        templateUrl: 'templates/account_creation.html',
+        controller: 'AccountCreationCtrl'
     })
 
   // setup an abstract state for the tabs directive
@@ -78,6 +84,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'schedule.controllers
       }
     }
   })
+
 
   .state('tab.chats', {
       url: '/chats',

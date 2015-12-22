@@ -1,5 +1,9 @@
 /* Empty. Add your own CSS if you like */
 
+.login-input {
+    vertical-align: middle;
+}
+
 .login-form {
     position: fixed;
     left: 0;
@@ -11,4 +15,38 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.item-floating-label .placeholder-icon {
+    font-size: 22px; 
+    padding-right: 18px;
+    position: absolute;
+    bottom: 6px;
+    left: 17px;
+}
+
+.item-floating-label {
+    padding-left: 40px !important;
+}
+
+.centered-upper {
+    position: fixed;
+    width: 100%;
+    top: 5%;
+    margin-top: -50px;
+}
+
+.centered-lower {
+    position: fixed;
+    width: 100%;
+    top: 75%;
+    margin-top: -50px;
+}
+
+.centered {
+    position: fixed;
+    width: 100%;
+    top: 30%;
+    margin-top: -50px;
+
 }

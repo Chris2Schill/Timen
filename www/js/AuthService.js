@@ -15,7 +15,6 @@ angular.module('auth.service', [])
     }
 
     function storeUserCredentials(token){
-        console.log("Login Success");
         window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
         useCredentials(token);
     }

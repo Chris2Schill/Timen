@@ -13,15 +13,15 @@ angular.module('starter.controllers', [])
     }
 
     $scope.viewDailySchedule = function(){
-        $state.go('daily-schedule',{}, {reload: true});
+        $state.go('daily_schedule',{}, {reload: true});
     }
 
     $scope.viewWeeklySchedule = function(){
-        $state.go('weekly-schedule',{}, {reload: true});
+        $state.go('weekly_schedule',{}, {reload: true});
     }
 
     $scope.viewMonthlySchedule = function(){
-        $state.go('monthly-schedule',{}, {reload: true});
+        $state.go('monthly_schedule',{}, {reload: true});
     }
 })
 
@@ -38,7 +38,14 @@ angular.module('starter.controllers', [])
             })
         });
     }
-    isAuthenticated = AuthService.isAuthenticated;
+
+    $scope.isAuthenticated = function(){
+        return AuthService.isAuthenticated();
+    }
+
+    $scope.viewAccountCreationPage = function(){
+        $state.go('account_creation', {}, {reload: true});
+    }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

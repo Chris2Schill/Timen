@@ -1,21 +1,31 @@
 <ion-view> 
-    <ion-content padding="true">
-        <h1 align="center">Timen'</h1>
+    <ion-content>
+        <h1 align="center" class="centered-upper">Timen'</h1>
 
-        <div class="list">
+
+        <div class="list login-input centered">
             <label class="item item-input item-floating-label">
+                <i class="icon ion-ios-email-outline placeholder-icon"></i> 
                 <span class="input-label">Email Address</span>
-                <input type="text" placeholder="Email Address" ng-model="data.email">
+                <input type="email" placeholder="Email Address" ng-model="data.email">
             </label>
 
             <label class="item item-input item-floating-label">
+                <i class="icon ion-locked placeholder-icon"></i> 
                 <span class="input-label">Password</span>
-                <input type="text" placeholder="Password" ng-model="data.password">  
+                <input type="password" placeholder="Password" ng-model="data.password">  
             </label>
         </div>
 
-        <button class="button button-positive button-block login-button" ng-click="login(data)"> 
-            Submit
-        </button>
+
+        <div class="centered-lower">
+            <button class="button button-positive button-block" ng-click="login(data)"> 
+                Submit
+            </button>
+
+            <button class="button button-energized button-block" ng-click="viewAccountCreationPage()"> 
+                Create Account
+            </button>
+        </div>
     </ion-content>
 </ion-view>

@@ -1,0 +1,27 @@
+<ion-view>
+    <ion-content class="padding">
+        <h1 align="center" class="centered-upper">Account Creation</h1>
+
+        <div class="list centered">
+            <label class="item item-input item-floating-label">
+                <i class="icon ion-ios-email-outline placeholder-icon"></i> 
+                <span class="input-label">Email Address</span>
+                <input type="text" placeholder="Email Address" ng-model="data.email">
+            </label>
+
+            <label class="item item-input item-floating-label">
+                <i class="icon ion-unlocked placeholder-icon"></i> 
+                <span class="input-label">Password</span>
+                <input type="text" placeholder="Password" ng-model="data.passkey1">
+            </label>
+
+            <label class="item item-input item-floating-label">
+                <i class="icon ion-locked placeholder-icon"></i> 
+                <span class="input-label">Verify Password</span>
+                <input type="text" placeholder="Verify Password" ng-model="data.passkey2">
+            </label>
+        </div>
+
+        <button class="button button-block button-assertive centered-lower">Submit</button>
+    </ion-content>
+</ion-view>
