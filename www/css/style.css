@@ -1,13 +1,15 @@
 /* Empty. Add your own CSS if you like */
 
+.fabric-background{
+    background-image: url("./../img/fabric.png")
+}
+
 .login-input {
     vertical-align: middle;
 }
 
-.login-form {
-    position: fixed;
-    left: 0;
-    right: 0;
+.white-background {
+    background-color: #FFFFFF;
 }
 
 .login-button {
@@ -15,6 +17,16 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.logo {
+    position: fixed;
+    vertical-align: center;
+    width: 35%;
+    height: 15%;
+    top: 10%;
+    left: 32.5%;
+    margin-top: -50px;
 }
 
 .item-floating-label .placeholder-icon {
@@ -46,7 +58,7 @@
 .centered {
     position: fixed;
     width: 100%;
-    top: 30%;
+    top: 35%;
     margin-top: -50px;
 
 }
