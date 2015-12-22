@@ -1,37 +1,65 @@
 angular.module('auth.service', []) 
 
-.service('AuthService', function($http) {
-    
+.service('AuthService', function($http,$q) {
+    var LOCAL_TOKEN_KEY = 'yourTokenKey';
+    var userEmail = '';
+    var isAuthenticated = false;
+    var role = '';
+    var authToken;
 
-    var login = function(){
-        console.log('Attempting to login...')
+    function loadUserCredentials(){
+        var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
+        if (token){
+            useCredentials(token);
+        }
+    }
 
-        $http({
-            method: 'GET',
-        url: 'http://localhost:3000/users'
+    function storeUserCredentials(token){
+        console.log("Login Success");
+        window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
+        useCredentials(token);
+    }
 
-        }).then(function successCallback(response) {
-            console.log('Get Request Success');
-            console.log(response.data[0].Passkey);
-            console.log(JSON.stringify(response.data)); 
-            // this callback will be called asynchronously
-            //     // when the response is available
-            //       
-        }, function errorCallback(response) {
-            console.log('Get Request Failed');
-            // called asynchronously if an error occurs
-            //     // or server returns response with an error status.
-            //       
+    function useCredentials(token){
+        userEmail = token.Email;
+        isAuthenticated = true;
+        authToken = token;
+        $http.defaults.headers.common['X-Auth-Token'] = token;
+    }
+
+    function destroyUserCredentials(){
+        authToken = undefined; 
+        userEmail = '';
+        isAuthenticated = false;
+        $http.defaults.headers.common['X-Auth-Token'] = undefined;
+        window.localStorage.removeItem(LOCAL_TOKEN_KEY);
+    }
+
+    function getUsersTable(){
+        return $http.get('http://localhost:3000/users');
+    };
+
+    var login =  function(email,password){
+        console.log('Attempting to login...');
+        return getUsersTable().then(function(response) {
+            console.log(JSON.stringify(response.data[0].Email));
+            for (i = 0; i < response.data.length; i++) {
+                if (response.data[i].Email == email && response.data[i].Passkey == password){
+                    storeUserCredentials(response.data[i]);
+                    break;
+                }
+            }
         });
     };
 
-    var isAuthenticated = function(){
-        console.log('Checking Authentication...');
-    };
-
+    var logout = function(){
+        destroyUserCredentials();
+    }
 
     return {
         login: login,
-        isAuthenticated: isAuthenticated
-    }
-})
+        logout: logout,
+        isAuthenticated: function() {return isAuthenticated;},
+        userEmail: function() {return userEmail;}
+    };
+});

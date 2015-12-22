@@ -37,6 +37,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
         controller: 'LoginCtrl'
     })
 
+    .state('dash', {
+        url: '/dash',
+        templateUrl: 'templates/dash.html',
+        controller: 'DashCtrl'
+    })
+
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',

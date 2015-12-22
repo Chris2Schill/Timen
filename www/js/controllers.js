@@ -1,21 +1,32 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('AppCtrl', function($scope) {
+    $scope.setCurrentEmail = function(email) {
+        $scope.email = email;
+    }
+})
 
-.controller('LoginCtrl', function($scope, AuthService) {
-    login = AuthService.login;
+.controller('DashCtrl', function($scope, $state, AuthService) {
+    $scope.logout = function(){
+        AuthService.logout();
+        $state.go('login', {}, {reload: true});
+    }
+})
+
+.controller('LoginCtrl', function($scope, $state, AuthService) {
+    $scope.data = {};
+    $scope.login = function(data){
+        AuthService.login(data.email, data.password).then(function(authenticated) {
+            $state.go('dash', {}, {reload: true});
+            $scope.setCurrentEmail(data.email);
+        }, function(err){
+
+        });
+    }
     isAuthenticated = AuthService.isAuthenticated;
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);

@@ -1,1 +1,14 @@
 /* Empty. Add your own CSS if you like */
+
+.login-form {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.login-button {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
