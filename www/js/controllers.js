@@ -11,16 +11,31 @@ angular.module('starter.controllers', [])
         AuthService.logout();
         $state.go('login', {}, {reload: true});
     }
+
+    $scope.viewDailySchedule = function(){
+        $state.go('daily-schedule',{}, {reload: true});
+    }
+
+    $scope.viewWeeklySchedule = function(){
+        $state.go('weekly-schedule',{}, {reload: true});
+    }
+
+    $scope.viewMonthlySchedule = function(){
+        $state.go('monthly-schedule',{}, {reload: true});
+    }
 })
 
-.controller('LoginCtrl', function($scope, $state, AuthService) {
+.controller('LoginCtrl', function($scope, $state, $ionicPopup, AuthService) { 
     $scope.data = {};
     $scope.login = function(data){
         AuthService.login(data.email, data.password).then(function(authenticated) {
             $state.go('dash', {}, {reload: true});
             $scope.setCurrentEmail(data.email);
         }, function(err){
-
+            var alertPopup = $ionicPopup.alert({
+                title: 'Login failed!',
+                template: 'Please check your credentials!'
+            })
         });
     }
     isAuthenticated = AuthService.isAuthenticated;

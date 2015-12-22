@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','auth.service'])
+angular.module('starter', ['ionic', 'starter.controllers', 'schedule.controllers', 'starter.services','auth.service']) 
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -41,6 +41,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
         url: '/dash',
         templateUrl: 'templates/dash.html',
         controller: 'DashCtrl'
+    })
+
+    .state('daily-schedule', {
+        url: '/daily-schedule',
+        templateUrl: 'templates/day.html',
+        controller: 'DayCtrl'
+    })
+
+    .state('weekly-schedule', {
+        url: '/weekly-schedule',
+        templateUrl: 'templates/week.html',
+        controller: 'WeekCtrl'
+    })
+
+    .state('monthly-schedule', {
+        url: '/monthly-schedule',
+        templateUrl: 'templates/month.html',
+        controller: 'MonthCtrl'
     })
 
   // setup an abstract state for the tabs directive

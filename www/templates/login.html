@@ -1,15 +1,19 @@
-<ion-view view-title="Login">
+<ion-view> 
     <ion-content padding="true">
+        <h1 align="center">Timen'</h1>
+
         <div class="list">
             <label class="item item-input item-floating-label">
                 <span class="input-label">Email Address</span>
                 <input type="text" placeholder="Email Address" ng-model="data.email">
             </label>
+
             <label class="item item-input item-floating-label">
                 <span class="input-label">Password</span>
                 <input type="text" placeholder="Password" ng-model="data.password">  
             </label>
         </div>
+
         <button class="button button-positive button-block login-button" ng-click="login(data)"> 
             Submit
         </button>

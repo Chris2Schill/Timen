@@ -1,20 +1,14 @@
 <ion-view>
-    <ion-content>
-        <div class="bar bar-header">
-            <button class="button button-icon">Left</button>
-            <div class="h1 title">Bar</div>
-            <button class="button button-icon" ng-click="logout()">Logout</button>
-        </div>
-        <div>
-            Day
-        </div>
 
-        <div>
-            Month
-        </div>
+    <ion-header-bar class="bar bar-header">
+        <div class="h1 title">Dashboard</div>
+        <button class="button button-icon" ng-click="logout()">Logout</button>
+    </ion-header-bar>
 
-        <div>
-            Year
-        </div>
+    <ion-content class="padding">
+        <button class="button button-block button-positive" ng-click="viewDailySchedule()">Day</button>
+        <button class="button button-block button-calm" ng-click="viewWeeklySchedule()">Week</button>
+        <button class="button button-block button-balanced" ng-click="viewMonthlySchedule()">Month</button>
     </ion-content>
+
 </ion-view>

@@ -40,16 +40,24 @@ angular.module('auth.service', [])
     };
 
     var login =  function(email,password){
-        console.log('Attempting to login...');
-        return getUsersTable().then(function(response) {
-            console.log(JSON.stringify(response.data[0].Email));
-            for (i = 0; i < response.data.length; i++) {
-                if (response.data[i].Email == email && response.data[i].Passkey == password){
-                    storeUserCredentials(response.data[i]);
-                    break;
+        return $q(function(resolve,reject) {
+            getUsersTable().then(function(response) {
+                for (i = 0; i < response.data.length; i++) {
+                    if (response.data[i].Email == email && response.data[i].Passkey == password){
+                        storeUserCredentials(response.data[i]);
+                        resolve("Login Successful");
+                        break;
+                    }
                 }
-            }
-        });
+                reject("Login Unsuccessful");
+            })
+        })
+        
+
+        /*
+        return getUsersTable().then(function(response) {
+                });
+        */
     };
 
     var logout = function(){
