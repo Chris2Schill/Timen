@@ -51,12 +51,6 @@ angular.module('auth.service', [])
                 reject("Login Unsuccessful");
             })
         })
-        
-
-        /*
-        return getUsersTable().then(function(response) {
-                });
-        */
     };
 
     var logout = function(){

@@ -37,6 +37,8 @@ angular.module('starter.controllers', [])
                 template: 'Please check your credentials!'
             })
         });
+        // offline workaround for login button to navigate to dash
+       //$state.go('dash', {}, {reload: true});
     }
 
     $scope.isAuthenticated = function(){

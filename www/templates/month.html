@@ -1,5 +1,18 @@
 <ion-view>
-    <ion-content>
-        Month Placeholder
+
+    <ion-header-bar class="bar bar-header bar-balanced">
+    <div class="h1 title">{{month}} Schedule</div>
+        <button class="button button-icon icon-left ion-chevron-left" ng-click="toDash()">Back</button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <ion-list show-delete="true" can-swipe="true">
+            <ion-item ng-repeat="event in events">
+                {{event}}
+            </ion-item> 
+        </ion-list>
+
     </ion-content>
+
 </ion-view>
