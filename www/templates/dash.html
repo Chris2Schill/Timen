@@ -3,26 +3,23 @@
     <ion-header-bar class="bar bar-header bar-dark">
         <button class="button button-icon" ng-click="logout()">Logout</button>
         <div class="h1 title">Dashboard</div>
-        <button class="button button-icon ion-plus" ng-click="openPopover($event)">New Event</button>
+        <button class="button button-icon ion-plus-round" ng-click="openPopover($event)">New Event</button>
     </ion-header-bar>
 
     <ion-content class="padding paper">
         <div class="row paper-padding">
-            <button class="button button-block button-positive" ng-click="viewDailySchedule()">
-                Day
-            </button>
+            <button class="button button-outline button-block button-positive 
+                icon-right ion-chevron-right" ng-click="viewDailySchedule()">Day</button>
         </div>
 
         <div class="row paper-padding">
-            <button class="button button-block button-calm" ng-click="viewWeeklySchedule()">
-                Week
-            </button>
+            <button class="button button-outline button-block button-calm icon-right ion-chevron-right"
+                ng-click="viewWeeklySchedule()">Week</button>
         </div>
 
         <div class="row paper-padding">
-            <button class="button button-block button-balanced" ng-click="viewMonthlySchedule()">
-                Month
-            </button>
+            <button class="button button-outline button-block button-balanced
+                icon-right ion-chevron-right" ng-click="viewMonthlySchedule()">Month</button>
         </div>
     </ion-content>
 

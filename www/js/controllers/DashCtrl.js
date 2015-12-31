@@ -24,7 +24,7 @@ angular.module('starter.controllers')
     $scope.addEvent = function(event){
         event.startDate = $scope.selectedStartDate;
         event.endDate = $scope.selectedEndDate;
-        $scope.popover.remove();
+        $scope.popover.hide();
         console.log(JSON.stringify(event));
     }
 
