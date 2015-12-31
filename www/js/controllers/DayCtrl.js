@@ -8,7 +8,7 @@ angular.module('schedule.controllers', [])
     $scope.toDash = function(){
         $state.go('dash', {}, {reload: true});
     };
-
+     
     $scope.populateEvents = function(){
         EventFetcher.populateTodaysEvents();
     }

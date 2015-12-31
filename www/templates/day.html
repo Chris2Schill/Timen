@@ -1,22 +1,25 @@
 <ion-view>
 
     <ion-header-bar class="bar bar-header bar-positive">
-        <div class="h1 title">Today's Schedule</div>
         <button class="button button-icon icon-left ion-chevron-left" ng-click="toDash()">Back</button>
+        <div class="h1 title">Today's Schedule</div>
     </ion-header-bar>
 
     <ion-content class="padding">
 
         <ion-list show-delete="false">
 
-            <ion-item class="enable-pointer-events" ng-repeat="event in events" 
-                      ng-click="console.log('clicked')"
-                      item="item"
-                      href="#/dash">
-                    {{event}}
-                    <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)">
-                    </ion-delete-button>
-            </ion-item> 
+            <ion-item show-delete="true">
+                <div class="card enable-pointer-events" ng-repeat="event in events" 
+                      ng-click="console.log('clicked')" item="item" href="#/dash">
+                      
+                      <div class="item item-text-wrap">
+                          {{event}}
+                      </div>
+                </div> 
+                <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
+                </ion-delete-button>
+            </ion-item>
 
         </ion-list>
 
