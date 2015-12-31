@@ -37,10 +37,13 @@
             </ionic-datepicker>
         </label>
 
-        <label style="display:inline; float:left;">
-            <ion-radio icon="ion-checkmark-circled" ng-model="event.reoccurance" ng-value="'none'">Not reoccuring</ion-radio>
-            <ion-radio icon="ion-checkmark-circled" ng-model="event.reoccurance" ng-value="'weekly'">Reoccuring Weekly</ion-radio>
-            <ion-radio icon="ion-checkmark-circled" ng-model="event.reoccurance" ng-value="'monthly'">Reoccuring Monthly</ion-radio>
+        <h4 align="center">Reoccurance</h4> 
+        <label class="row">
+            <label></label>
+            <ion-radio class="col" icon="ion-checkmark-circled" ng-model="event.reoccurance" ng-value="'none'">Single</ion-radio>
+            <ion-radio class="col" icon="ion-checkmark-circled" ng-model="event.reoccurance" ng-value="'weekly'">Weekly</ion-radio>
+            <ion-radio class="col "icon="ion-checkmark-circled" ng-model="event.reoccurance" ng-value="'monthly'">Monthly</ion-radio>
+            <label></label>
         </label>
 
         <div class="item padding"> 
