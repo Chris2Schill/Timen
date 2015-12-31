@@ -5,3 +5,8 @@
     linear-gradient(#eee .1em, transparent .1em);
     background-size: 100% 1.2em;
 }
+
+.paper-padding{
+    padding-left:79px;
+    padding-right:79px;
+}

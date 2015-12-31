@@ -4,10 +4,6 @@
     background-image: url("./../img/fabric.png")
 }
 
-.login-input {
-    vertical-align: middle;
-}
-
 .white-background {
     background-color: #FFFFFF;
 }
@@ -39,6 +35,7 @@
 
 .item-floating-label {
     padding-left: 40px !important;
+    border-color: black;
 }
 
 .centered-upper {
