@@ -6,25 +6,6 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('DashCtrl', function($scope, $state, AuthService) {
-    $scope.logout = function(){
-        AuthService.logout();
-        $state.go('login', {}, {reload: true});
-    }
-
-    $scope.viewDailySchedule = function(){
-        $state.go('daily_schedule',{}, {reload: true});
-    }
-
-    $scope.viewWeeklySchedule = function(){
-        $state.go('weekly_schedule',{}, {reload: true});
-    }
-
-    $scope.viewMonthlySchedule = function(){
-        $state.go('monthly_schedule',{}, {reload: true});
-    }
-})
-
 .controller('LoginCtrl', function($scope, $state, $ionicPopup, AuthService) { 
     $scope.data = {};
     $scope.login = function(data){

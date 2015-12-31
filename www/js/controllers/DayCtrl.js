@@ -9,4 +9,8 @@ angular.module('schedule.controllers', [])
         $state.go('dash', {}, {reload: true});
     };
 
+    $scope.populateEvents = function(){
+        EventFetcher.populateTodaysEvents();
+    }
+
 });
