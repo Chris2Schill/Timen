@@ -1,25 +1,35 @@
 <ion-view>
 
-    <ion-header-bar class="bar bar-header bar-positive">
+    <ion-header-bar class="bar bar-header bar-dark">
         <button class="button button-icon icon-left ion-chevron-left" ng-click="toDash()">Back</button>
         <div class="h1 title">Today's Schedule</div>
+        <button class="button button-icon icon-left ion-minus" ng-click="toggleDelete()"></button>
     </ion-header-bar>
 
-    <ion-content class="padding">
+    <ion-content class="padding paper">
 
-        <ion-list show-delete="false">
+        <ion-list show-delete="shouldShowDelete">
 
-            <ion-item show-delete="true">
-                <div class="card enable-pointer-events" ng-repeat="event in events" 
-                      ng-click="console.log('clicked')" item="item" href="#/dash">
+            <ion-item class="padding-left padding-right" ng-repeat="event in events.data">
+                <div class="card enable-pointer-events"
+                      ng-click="console.log('clicked')" href="#/dash">
                       
-                      <div class="item item-text-wrap">
-                          {{event}}
+                      <div class="item item-divider">
+                          {{event.Name}} at
+                          <standard-time-meridian etime="event.StartTime"></standard-time-meridian> 
+                      </div>
+                      <div class="item item-text-wrap" ng-click="onItemClicked()">
+                          {{event.Description}} 
                       </div>
                 </div> 
+
                 <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
                 </ion-delete-button>
-            </ion-item>
+
+                <ion-option-button class="button-info button-assertive" ng-click="edit(item)"> 
+                    Edit
+                </ion-option-button> 
+            </item-item>
 
         </ion-list>
 

@@ -19,23 +19,53 @@
         </label>
 
         <!-- Need to verify location of ng-model tag for date-picker -->
-        <label class="item item-input item-stacked-label padding">
-            <span class="input-label">Start Date</span>
-            <ionic-datepicker input-obj="startDatepickerObject">
-                <button class="button button-block button-balanced">
-                    {{selectedStartDate | date:'dd - MMMM - yyyy'}}
-                </button> 
-            </ionic-datepicker>
+        <label class="row item">
+            <label class="col item-stacked-label padding">
+                <ionic-datepicker input-obj="startDatepickerObject">
+                    <div class="input-label">Start Date</div> 
+                    <button class="button button-block button-balanced">
+                        {{selectedStartDate | date:'dd - MMMM - yyyy'}}
+                    </button> 
+                </ionic-datepicker>
+            </label>
         </label>
 
-        <!-- Need to verify location of ng-model tag for date-picker -->
-        <label class="item item-input item-stacked-label padding">
-            <span class="input-label">End Date</span>
-            <ionic-datepicker input-obj="endDatepickerObject">
-                <button class="button button-block button-assertive">
-                    {{selectedEndDate | date:'dd - MMMM - yyyy'}}
-                </button> 
-            </ionic-datepicker>
+        <label class="row item">
+            <!-- Need to verify location of ng-model tag for date-picker -->
+            <label class="col item-stacked-label padding">
+                <ionic-datepicker input-obj="endDatepickerObject">
+                    <div class="input-label">End Date</div>
+                    <button class="button button-block button-assertive">
+                        {{selectedEndDate | date:'dd - MMMM - yyyy'}}
+                    </button> 
+                </ionic-datepicker>
+            </label>
+            <label></label>
+        </label>
+
+        <label class="row item">
+            <label class="col padding">
+                <ionic-timepicker input-obj="startTimepickerObject">
+                    <div class="input-label">Start Time</div>
+                    <button class="button button-block button-balanced overflowShow">
+                        <standard-time-meridian etime='selectedStartTime'>
+                        </standard-time-meridian>
+                    </button>
+                </ionic-timepicker>
+            </label>
+        </label>
+
+
+        <label class="row item">
+            <label class="col padding">
+                <ionic-timepicker input-obj="endTimepickerObject">
+                    <div class="input-label">End Time</div> 
+                    <button class="button button-block button-assertive overflowShow">
+                      <standard-time-meridian etime='selectedEndTime'> 
+                      </standard-time-meridian>
+                    </button>
+                </ionic-timepicker>
+            </label>
         </label>
 
         <h4 align="center">Reoccurence</h4> 
@@ -47,7 +77,7 @@
             <label></label>
         </label>
 
-        <div class="item padding"> 
+        <div class="padding"> 
             <button class="button button-block button-positive" ng-click="addEvent(event)">Add Event</button>
         </div> 
     </div>

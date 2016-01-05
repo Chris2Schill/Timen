@@ -1,27 +1,21 @@
-angular.module('account_creation.service', [])
+angular.module('account_creation.service', []) 
 
-.service('AccountCreationService', function($http) { 
-
-    function toParams(obj) {
-        var p = [];
-        for (var key in obj) {
-            p.push(key + '=' + encodeURIComponent(obj[key]));
-        }
-        return p.join('&');
-    };
+.service('AccountCreationService', function($http, $q) {  
 
     var createAccount = function(data) {
-        console.log(JSON.stringify(data));
-//        $http.post('http://localhost:3000/create_account', toParams(data)).then(function(reponse){
-
-        $http({
+        return $http({
             method:'POST',
             url: 'http://localhost:3000/create_account',
-            data: JSON.stringify(data),
+            data: data,
             headers: {'Content-Type': 'application/json'}
         }).then(function(res){
+            if (res.data == 'Duplicate Email'){
+                $q.reject(res);
+            }
+            else{
+                q.resolve(res)
+            }
            console.log("Creation Successful") 
-
         }, function(err){
            console.log("Creation Unsuccessful") 
         });

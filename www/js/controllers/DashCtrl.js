@@ -11,6 +11,7 @@ angular.module('starter.controllers')
 
     $scope.viewDailySchedule = function(){
         $state.go('daily_schedule',{}, {reload: true});
+        EventFetcher.populateTodaysEvents();
     }
 
     $scope.viewWeeklySchedule = function(){
@@ -24,15 +25,19 @@ angular.module('starter.controllers')
     $scope.addEvent = function(event){
         event.startDate = $scope.selectedStartDate;
         event.endDate = $scope.selectedEndDate;
-        $scope.popover.hide();
+        event.startTime = $scope.selectedStartTime;
+        event.endTime = $scope.selectedEndTime;
+        if (event.name != null && event.description != null && event.reoccurence != null &&
+                event.startDate && event.endDate != null && event.startTime != null &&
+                event.endTime != null){
+            $scope.popover.hide();
+            EventCreator.createEvent(event);
+        }
+        else{
+            console.log("Invalid form");
+        }
         console.log(JSON.stringify(event));
     }
-
-    /*
-    $scope.createEvent = function(data){
-        EventFetcher.createEvent(data);
-    }
-    */
 
     $ionicPopover.fromTemplateUrl('templates/event-popover.html', {
         scope: $scope
@@ -70,11 +75,13 @@ angular.module('starter.controllers')
 
     $scope.selectedStartDate = new Date();
     $scope.selectedEndDate = new Date();
+    $scope.selectedStartTime = 43200;
+    $scope.selectedEndTime = 0;
 
     $scope.startDatepickerObject = {
-        setButtonType : 'button-assertive',  //Optional
-        todayButtonType : 'button-assertive',  //Optional
-        closeButtonType : 'button-assertive',  //Optional
+        setButtonType : 'button-energized',  //Optional
+        todayButtonType : 'button-energized',  //Optional
+        closeButtonType : 'button-energized',  //Optional
         templateType: 'popup', //Optional
         callback: function (val) {  //Mandatory
             $scope.selectedStartDate = val;
@@ -84,15 +91,44 @@ angular.module('starter.controllers')
     };
 
     $scope.endDatepickerObject = {
-        setButtonType : 'button-assertive',  //Optional
-        todayButtonType : 'button-assertive',  //Optional
-        closeButtonType : 'button-assertive',  //Optional
+        setButtonType : 'button-energized',  //Optional
+        todayButtonType : 'button-energized',  //Optional
+        closeButtonType : 'button-energized',  //Optional
         templateType: 'popup', //Optional
         callback: function (val) {  //Mandatory
             $scope.selectedEndDate = val;
         },
         dateFormat: 'dd-MM-yyyy', //Optional
         closeOnSelect: true //Optional
+    };
+
+    $scope.startTimepickerObject = {
+        inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+        step: 15,
+        format: 12,
+        setButtonType: 'button-energized',  //Optional
+        closeButtonType: 'button-stable',  //Optional
+        callback: function (val) {    //Mandatory
+            console.log("Picked Start Time")
+            console.log(val);
+            $scope.selectedStartTime = val;
+        }
+    };
+
+    $scope.endTimepickerObject = {
+        inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+        step: 15,  //Optional
+        format: 12,  //Optional
+        titleLabel: '12-hour Format',  //Optional
+        setLabel: 'Set',  //Optional
+        closeLabel: 'Close',  //Optional
+        setButtonType: 'button-positive',  //Optional
+        closeButtonType: 'button-stable',  //Optional
+        callback: function (val) {    //Mandatory
+            console.log(val);
+            $scope.selectedEndTime = val;
+        }
+
     };
 
 })

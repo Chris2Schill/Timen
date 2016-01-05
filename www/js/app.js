@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ionic-datepicker', 'starter.controllers', 'schedule.controllers', 'starter.services','auth.service', 'account_creation.service', 'event.fetcher'])   
+angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'starter.controllers', 'schedule.controllers', 'starter.services','auth.service', 'account_creation.service', 'event.fetcher'])   
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -117,5 +117,4 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'starter.controllers', '
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
-
 });

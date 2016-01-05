@@ -13,15 +13,41 @@ angular.module('event.fetcher', [])
     function getTodaysEvents(){
         return $http.get('/daily_events');
     };
+
+    var populateTodaysEvents = function() {
+        return $http.get('http://localhost:3000/daily_events');
+        /*
+        return $http.get('http://localhost:3000/daily_events').then(function(response) {
+            console.log("Fetching Events");
+            console.log(JSON.stringify(response));
+        }, function(err){
+            console.log(JSON.stringify(err));
+        });
+        */
+    };
     
-    var populateTodaysEvents = function(email) { 
-        return $q(function(resolve,reject) {
+    /*
+    var populateTodaysEvents = function() { 
+        $q(function(resolve,reject) {
             getTodaysEvents().then(function(response) {
-                resolve('Events fetching successful'); 
+                console.log("Fetching Events");
+                console.log(response);
+                return response;
+                resolve('Event fetching successful'); 
             });
             reject('Event fetching unsuccessful');
         });
     }; 
+    */
+
+    var populateWeeklyEvents = function(email){
+        return $q(function(resolve,reject) {
+            getThisWeeksEvents().then(function(response) {
+                resolve('Event fetching successful'); 
+            });
+            reject('Event fetching unsuccessful');
+        });
+    }
 
     var createEvent = function(event){
 
@@ -45,6 +71,7 @@ angular.module('event.fetcher', [])
 
         return {
             populateTodaysEvents: populateTodaysEvents,
+            populateWeeklyEvents: populateWeeklyEvents,
             createEvent: createEvent,
             deleteEvent: deleteEvent
     };

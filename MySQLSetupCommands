@@ -1,0 +1,16 @@
+CREATE TABLE Users(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Passkey VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE `Events` (
+    User_id INT NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Description VARCHAR(3000),
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL,
+    StartTime INT NOT NULL,
+    EndTime INT NOT NULL,
+    Reoccurence VARCHAR(10) NOT NULL
+);
