@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-.controller('DashCtrl', function($scope, $state, $ionicPopover, AuthService, EventFetcher) {  
+.controller('DashCtrl', function($scope, $state, $ionicPopover, AuthService, EventFetcher, EventCreator) {   
 
     $scope.event = {};
 
@@ -23,6 +23,7 @@ angular.module('starter.controllers')
     }
 
     $scope.addEvent = function(event){
+        event.user_id = AuthService.user_id();
         event.startDate = $scope.selectedStartDate;
         event.endDate = $scope.selectedEndDate;
         event.startTime = $scope.selectedStartTime;

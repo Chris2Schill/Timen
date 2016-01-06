@@ -23,7 +23,6 @@ angular.module('event.fetcher', [])
             method: "GET",
             params: {user_id: user_id}
         }).then(function(response){
-            console.log(JSON.stringify(response));
             events = response.data;
         }, function(err){
             console.log(JSON.stringify(err));    
