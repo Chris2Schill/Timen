@@ -16,7 +16,7 @@ angular.module('schedule.controllers', [])
     };
 
     $scope.updateEvents = function(){
-        $scope.events = EventFetcher.events();
+        $scope.events = EventFetcher.todaysEvents();
     };
      
 });

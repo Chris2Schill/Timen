@@ -47,6 +47,7 @@ angular.module('auth.service', [])
                 for (i = 0; i < response.data.length; i++) {
                     if (response.data[i].Email == email && response.data[i].Passkey == password){
                         storeUserCredentials(response.data[i]);
+                        console.log("User Id: " + user_id);
                         console.log('AuthToken: ' + authToken);
                         resolve("Login Successful");
                     }
