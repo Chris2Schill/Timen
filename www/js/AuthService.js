@@ -3,7 +3,7 @@ angular.module('auth.service', [])
 .service('AuthService', function($http,$q) {
     var LOCAL_TOKEN_KEY = 'yourTokenKey';
     var userEmail = '';
-    var user_id = 3;
+    var user_id = 1;
     var isAuthenticated = false;
     var role = '';
     var authToken;

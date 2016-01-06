@@ -22,15 +22,17 @@ angular.module('starter.controllers')
         $state.go('monthly_schedule',{}, {reload: true});
     }
 
-    $scope.addEvent = function(event){
+    $scope.addEvent = function(event){ 
         event.user_id = AuthService.user_id();
         event.startDate = $scope.selectedStartDate;
         event.endDate = $scope.selectedEndDate;
         event.startTime = $scope.selectedStartTime;
         event.endTime = $scope.selectedEndTime;
-        if (event.name != null && event.description != null && event.reoccurence != null &&
-                event.startDate && event.endDate != null && event.startTime != null &&
+        if (event.name != null && event.description != null && 
+                event.reoccurence != null && event.startDate 
+                && event.endDate != null && event.startTime != null &&
                 event.endTime != null){
+
             $scope.popover.hide();
             EventCreator.createEvent(event);
         }

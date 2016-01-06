@@ -11,7 +11,7 @@
 
         <ion-list show-delete="shouldShowDelete">
 
-            <div class="padding-left padding-right" ng-repeat="event in events">
+            <div class="padding-left padding-right" ng-repeat="event in events | orderBy: 'StartTime'"> 
                 <div class="card enable-pointer-events"
                       ng-click="console.log('clicked')" href="#/dash">
                       <div class="item item-divider">
