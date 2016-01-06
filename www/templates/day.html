@@ -7,13 +7,13 @@
     </ion-header-bar>
 
     <ion-content class="padding paper">
+    {{updateEvents()}}
 
         <ion-list show-delete="shouldShowDelete">
 
-            <ion-item class="padding-left padding-right" ng-repeat="event in events.data">
+            <div class="padding-left padding-right" ng-repeat="event in events">
                 <div class="card enable-pointer-events"
                       ng-click="console.log('clicked')" href="#/dash">
-                      
                       <div class="item item-divider">
                           {{event.Name}} at
                           <standard-time-meridian etime="event.StartTime"></standard-time-meridian> 
@@ -23,13 +23,7 @@
                       </div>
                 </div> 
 
-                <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
-                </ion-delete-button>
-
-                <ion-option-button class="button-info button-assertive" ng-click="edit(item)"> 
-                    Edit
-                </ion-option-button> 
-            </item-item>
+            </div>
 
         </ion-list>
 

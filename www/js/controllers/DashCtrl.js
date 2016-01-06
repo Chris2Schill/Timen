@@ -10,8 +10,8 @@ angular.module('starter.controllers')
     }
 
     $scope.viewDailySchedule = function(){
+        EventFetcher.populateTodaysEvents(AuthService.user_id());
         $state.go('daily_schedule',{}, {reload: true});
-        EventFetcher.populateTodaysEvents();
     }
 
     $scope.viewWeeklySchedule = function(){
@@ -75,7 +75,7 @@ angular.module('starter.controllers')
 
     $scope.selectedStartDate = new Date();
     $scope.selectedEndDate = new Date();
-    $scope.selectedStartTime = 43200;
+    $scope.selectedStartTime = 86340;
     $scope.selectedEndTime = 0;
 
     $scope.startDatepickerObject = {

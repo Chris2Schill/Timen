@@ -5,7 +5,7 @@ angular.module('starter.controllers')
     $scope.login = function(data){
         AuthService.login(data.email, data.password).then(function(authenticated) {
             $state.go('dash', {}, {reload: true});
-            $scope.setCurrentEmail(data.email);
+         //   $scope.setCurrentEmail(data.email);
         }, function(err){
             var alertPopup = $ionicPopup.alert({
                 title: 'Login failed!',

@@ -2,6 +2,8 @@ angular.module('event.fetcher', [])
 
 .service('EventFetcher', function($http, $q){
 
+    var events = {};
+
     function getThisMonthsEvents(){
         return $http.get('/monthly_events');
     }
@@ -14,16 +16,18 @@ angular.module('event.fetcher', [])
         return $http.get('/daily_events');
     };
 
-    var populateTodaysEvents = function() {
-        return $http.get('http://localhost:3000/daily_events');
-        /*
-        return $http.get('http://localhost:3000/daily_events').then(function(response) {
-            console.log("Fetching Events");
+    var populateTodaysEvents = function(user_id) {
+        console.log("User Id: " + user_id);
+        $http({
+            url: 'http://localhost:3000/daily_events', 
+            method: "GET",
+            params: {user_id: user_id}
+        }).then(function(response){
             console.log(JSON.stringify(response));
+            events = response.data;
         }, function(err){
-            console.log(JSON.stringify(err));
+            console.log(JSON.stringify(err));    
         });
-        */
     };
     
     /*
@@ -73,6 +77,7 @@ angular.module('event.fetcher', [])
             populateTodaysEvents: populateTodaysEvents,
             populateWeeklyEvents: populateWeeklyEvents,
             createEvent: createEvent,
-            deleteEvent: deleteEvent
+            deleteEvent: deleteEvent,
+            events: function(){return events;}
     };
 });

@@ -5,6 +5,7 @@ CREATE TABLE Users(
 );
 
 CREATE TABLE `Events` (
+    Event_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     User_id INT NOT NULL,
     Name VARCHAR(100) NOT NULL,
     Description VARCHAR(3000),

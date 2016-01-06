@@ -1,9 +1,9 @@
 angular.module('schedule.controllers', []) 
 
-.controller('DayCtrl', function($scope, $state, EventFetcher){
-    $scope.test = "test";
+.controller('DayCtrl', function($scope, $state, EventFetcher, AuthService){
     $scope.shouldShowDelete = false;
     $scope.listCanSwipe = true;
+    $scope.events
     
 //    $scope.events = [{"name": 'Operating Systems Homework 1', time: '11:59PM'}, 'Work meeting', 'Music Lesson', 'Doctors Appointment', 'Hot Date'];
     
@@ -11,28 +11,12 @@ angular.module('schedule.controllers', [])
         console.log('clicked');
     }
     
-    $scope.toggleDelete = function(){
-        $scope.shouldShowDelete = !$scope.shouldShowDelete;
-    }
-
     $scope.toDash = function(){
         $state.go('dash', {}, {reload: true});
     };
+
+    $scope.updateEvents = function(){
+        $scope.events = EventFetcher.events();
+    };
      
-    $scope.populateEvents = function(){
-        EventFetcher.populateTodaysEvents().then(function(response){ 
-            console.log(JSON.stringify(response));
-            $scope.events = response;
-        }, function(err){
-            console.log(JSON.stringify(err)); 
-        });
-    }
-    $scope.populateEvents();
-
-    /*
-    $scope.items.splice = function(index, n){
-        
-    }
-    */
-
 });
