@@ -6,6 +6,23 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {},
-    "dependent_plugins": {}
+    "installed_plugins": {
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/phonegap-plugin-push/www/push.js",
+            "id": "phonegap-plugin-push.PushNotification",
+            "pluginId": "phonegap-plugin-push",
+            "clobbers": [
+                "PushNotification"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "phonegap-plugin-push": "1.5.2"
+    }
 }

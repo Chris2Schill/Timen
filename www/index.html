@@ -14,11 +14,13 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
     <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
      
 
     <!-- services -->
@@ -26,6 +28,7 @@
     <script src="js/services/AccountCreation.js"></script>
     <script src="js/services/EventFetcher.js"></script>
     <script src="js/services/EventCreator.js"></script>
+    <script src="js/services/PushNotifier.js"></script>
 
     <!-- controllers -->
     <script src="js/controllers/DayCtrl.js"></script>

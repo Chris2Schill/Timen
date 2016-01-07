@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
-
-.controller('DashCtrl', function($scope, $state, $ionicPopover, AuthService, EventFetcher, EventCreator) {   
+ 
+.controller('DashCtrl', function($scope, $state, $ionicPopover, AuthService, PushNotifier, EventFetcher,EventCreator) { 
 
     $scope.event = {};
 
@@ -15,6 +15,7 @@ angular.module('starter.controllers')
     }
 
     $scope.viewWeeklySchedule = function(){
+        PushNotifier.notify(); 
         $state.go('weekly_schedule',{}, {reload: true});
     }
 

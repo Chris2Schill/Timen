@@ -1,0 +1,33 @@
+<ion-view> 
+    <ion-content class="padding paper">
+
+        <div class="centered-upper">
+            <img src="img/TimenLogo.png" class="logo"> 
+        </div>
+
+        <div class="list centered paper-padding">
+            <label class="item item-input item-floating-label white-background">
+                <i class="icon ion-ios-email-outline placeholder-icon"></i> 
+                <span class="input-label">Email Address</span>
+                <input type="text" placeholder="Email Address" ng-model="data.email">
+            </label> 
+
+            <label class="item item-input item-floating-label white-background">
+                <i class="icon ion-locked placeholder-icon"></i> 
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="Password" ng-model="data.password">  
+            </label>
+        </div>
+
+
+        <div class="centered-lower paper-padding">
+            <button class="button button-positive button-block" ng-click="login(data)"> 
+                Login
+            </button>
+
+            <button class="button button-energized button-block" ng-click="viewAccountCreationPage()"> 
+                Create Account
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

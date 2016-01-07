@@ -1,0 +1,86 @@
+<style>.popover { height:90%; width: 97.5%;  }</style>
+<ion-popover-view class="event-popover">
+
+    <ion-header-bar>
+        <button ng-click="closePopover()">Close</button>
+        <h1 class="title">Event Creation</h1>
+    </ion-header-bar>
+
+    <ion-content>
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Event Name</span>
+            <input type="text" placeholder="Christmas Dinner" ng-model="event.name"> 
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Description</span>
+            <input type="text" placeholder="Dinner with the family at Aunt Marge's house." ng-model="event.description">
+        </label>
+
+        <!-- Need to verify location of ng-model tag for date-picker -->
+        <label class="row item">
+            <label class="col item-stacked-label padding">
+                <ionic-datepicker input-obj="startDatepickerObject">
+                    <div class="input-label">Start Date</div> 
+                    <button class="button button-block button-balanced">
+                        {{selectedStartDate | date:'dd - MMMM - yyyy'}}
+                    </button> 
+                </ionic-datepicker>
+            </label>
+        </label>
+
+        <label class="row item">
+            <!-- Need to verify location of ng-model tag for date-picker -->
+            <label class="col item-stacked-label padding">
+                <ionic-datepicker input-obj="endDatepickerObject">
+                    <div class="input-label">End Date</div>
+                    <button class="button button-block button-assertive">
+                        {{selectedEndDate | date:'dd - MMMM - yyyy'}}
+                    </button> 
+                </ionic-datepicker>
+            </label>
+            <label></label>
+        </label>
+
+        <label class="row item">
+            <label class="col padding">
+                <ionic-timepicker input-obj="startTimepickerObject">
+                    <div class="input-label">Start Time</div>
+                    <button class="button button-block button-balanced overflowShow">
+                        <standard-time-meridian etime='selectedStartTime'>
+                        </standard-time-meridian>
+                    </button>
+                </ionic-timepicker>
+            </label>
+        </label>
+
+
+        <label class="row item">
+            <label class="col padding">
+                <ionic-timepicker input-obj="endTimepickerObject">
+                    <div class="input-label">End Time</div> 
+                    <button class="button button-block button-assertive overflowShow">
+                      <standard-time-meridian etime='selectedEndTime'> 
+                      </standard-time-meridian>
+                    </button>
+                </ionic-timepicker>
+            </label>
+        </label>
+
+        <h4 align="center">Reoccurence</h4> 
+        <label class="row">
+            <label></label>
+            <ion-radio class="col" icon="ion-checkmark-circled" ng-model="event.reoccurence" ng-value="'none'">Single</ion-radio>
+            <ion-radio class="col" icon="ion-checkmark-circled" ng-model="event.reoccurence" ng-value="'weekly'">Weekly</ion-radio>
+            <ion-radio class="col "icon="ion-checkmark-circled" ng-model="event.reoccurence" ng-value="'monthly'">Monthly</ion-radio>
+            <label></label>
+        </label>
+
+        <div class="padding"> 
+            <button class="button button-block button-positive" ng-click="addEvent(event)">Add Event</button>
+        </div> 
+    </div>
+    </ion-content>
+
+</ion-popover-view>
